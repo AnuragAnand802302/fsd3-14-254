@@ -1,0 +1,14 @@
+[
+  {
+    "id": 101,
+    "name": "lap",
+    "price": 2500,
+    "qty": 2
+  },
+  {
+    "id": 102,
+    "name": "mobile",
+    "price": 12000,
+    "qty": 3
+  }
+]
