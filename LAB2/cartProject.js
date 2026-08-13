@@ -44,6 +44,21 @@ const removeProduct = async(pid)=>{
   }else console.log('product not found');
 };
 
+const updateQuantity = async(pid)=>{
+  const cart = await getCart();
+  const isFoundInCart = cart.find((item) => item.id === pid);
+  if(isFoundInCart.qty === 1){
+    await removeProduct(pid);
+  }else if(isFoundInCart){
+    
+    isFoundInCart.qty -= 1;
+    await saveCart(cart);
+    console.log(`${isFoundInCart.name} quantity updated in cart 🛒`);
+  }else{
+    console.log(`product with id ${pid} not found`);
+  }
+};
+
 const main = async () => {
   let choice;
   const cin = readline.createInterface({ input: stdin, output: stdout });
@@ -52,7 +67,7 @@ const main = async () => {
     console.log("1 ......... Show Cart");
     console.log("2 ......... Add Product");
     console.log("3 .........  Remove Product");
-    console.log("4 ......... Update Product");
+    console.log("4 ......... Update Quantity of product");
     console.log("5 ......... CheckOut");
     choice = await cin.question("enter your choice? ");
     switch (Number(choice)) {
@@ -74,7 +89,8 @@ const main = async () => {
         await removeProduct(Number(pid));
         break;
       case 4:
-        console.log("Update Product");
+        let upid = await cin.question("enter the product id to be updated:");
+        await updateQuantity(Number(upid));
         break;
       case 5:
         console.log("CheckOut");
