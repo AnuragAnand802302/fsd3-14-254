@@ -18,7 +18,7 @@ const addToCart = async (product) => {
     isFoundInCart.qty += product.qty;
   } else cart.push(product);
   await saveCart(cart);
-  console.log(`${product.name} added/updated to 🛒`);
+  console.log(`${product.name} added/updated to 🛒`);    //checking
 };
 
 const displayCart = async () => {
