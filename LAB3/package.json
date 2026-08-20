@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node App.js",
-    "dev": "nodemon App.js"
+    "start": "node prg1.js",
+    "dev": "nodemon prg3.js"
   },
   "keywords": [],
   "author": "",
