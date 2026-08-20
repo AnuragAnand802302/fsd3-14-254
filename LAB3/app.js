@@ -1,9 +1,7 @@
 import http from "http";
 
-const server = http.createServer();
-server.on("request", (req, res) => {
-  res.write("Welcome To server side programming");
-  res.end();
+const server = http.createServer((req, res) => {
+  res.end("<h2>Welcome to Serverside programming</h2>");
 });
 
 server.listen(3000, () => {
