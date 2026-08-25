@@ -1,11 +1,11 @@
 import http from "http";
 
 const server = http.createServer((req,res)=>{
-    if(req.url == "/")
+    if(req.url === "/")
         res.end("<h1>Home Page</h1>")
-    else if(req.url == "/about")
+    else if(req.url === "/about")
         res.end("<h2>About us page</h2>")
-    else if(req.url == "/product")
+    else if(req.url === "/product")
         res.end(`<h1>Mobile Phone</h1>
                 <h2>Price: 25000</h2>
                 <p>Discount: 5%</p>
