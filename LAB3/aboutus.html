@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | WTRLab</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f4ef;
+            color: #171717;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            border-bottom: 1px solid #ddd;
+
+            background: #f5f4ef;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            font-weight: normal;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #222;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: #777;
+        }
+
+        .back-btn {
+            text-decoration: none;
+
+            padding: 11px 20px;
+
+            background: #171717;
+            color: white;
+
+            border-radius: 25px;
+
+            font-size: 13px;
+        }
+
+        /* ================= HERO ================= */
+
+        .about-hero {
+            min-height: 550px;
+
+            padding: 90px 7%;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 70px;
+        }
+
+        .small-title {
+            color: #777;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 20px;
+        }
+
+        .about-hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(55px, 7vw, 90px);
+
+            font-weight: normal;
+
+            line-height: 0.95;
+        }
+
+        .about-hero h1 span {
+            display: block;
+
+            font-style: italic;
+        }
+
+        .hero-text {
+            max-width: 500px;
+
+            margin-top: 30px;
+
+            color: #666;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+        }
+
+        .hero-image img {
+            width: 100%;
+
+            height: 500px;
+
+            object-fit: cover;
+        }
+
+        /* ================= OUR STORY ================= */
+
+        .story {
+            background: #191919;
+
+            color: white;
+
+            padding: 110px 7%;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 90px;
+
+            align-items: center;
+        }
+
+        .story-image img {
+            width: 100%;
+
+            height: 550px;
+
+            object-fit: cover;
+        }
+
+        .story-content .small-title {
+            color: #aaa;
+        }
+
+        .story-content h2 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 55px;
+
+            font-weight: normal;
+
+            line-height: 1;
+        }
+
+        .story-content p {
+            color: #aaa;
+
+            line-height: 1.9;
+
+            font-size: 14px;
+
+            margin-top: 25px;
+
+            max-width: 500px;
+        }
+
+        /* ================= MISSION ================= */
+
+        .mission {
+            padding: 120px 7%;
+
+            text-align: center;
+        }
+
+        .mission h2 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 60px;
+
+            font-weight: normal;
+
+            max-width: 800px;
+
+            margin: auto;
+
+            line-height: 1.05;
+        }
+
+        .mission p {
+            max-width: 650px;
+
+            margin: 30px auto 0;
+
+            color: #777;
+
+            line-height: 1.8;
+
+            font-size: 14px;
+        }
+
+        /* ================= VALUES ================= */
+
+        .values {
+            padding: 100px 7%;
+
+            background: #e5e2d9;
+        }
+
+        .values-title {
+            text-align: center;
+
+            margin-bottom: 60px;
+        }
+
+        .values-title h2 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 55px;
+
+            font-weight: normal;
+        }
+
+        .values-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .value-card {
+            background: #f5f4ef;
+
+            padding: 40px 30px;
+
+            min-height: 230px;
+        }
+
+        .value-number {
+            font-size: 12px;
+
+            color: #888;
+
+            margin-bottom: 30px;
+        }
+
+        .value-card h3 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 28px;
+
+            font-weight: normal;
+
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: #777;
+
+            line-height: 1.7;
+
+            font-size: 13px;
+        }
+
+        /* ================= STATS ================= */
+
+        .stats {
+            padding: 100px 7%;
+
+            background: #171717;
+
+            color: white;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            text-align: center;
+
+            gap: 30px;
+        }
+
+        .stat h3 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 50px;
+
+            font-weight: normal;
+        }
+
+        .stat p {
+            color: #999;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+            margin-top: 10px;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            padding: 120px 20px;
+
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 65px;
+
+            font-weight: normal;
+
+            line-height: 1;
+        }
+
+        .cta p {
+            color: #777;
+
+            margin: 25px auto;
+
+            max-width: 500px;
+
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            padding: 15px 28px;
+
+            border-radius: 30px;
+
+            background: #171717;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 13px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #111;
+
+            color: white;
+
+            padding: 50px 7%;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 25px;
+
+            font-weight: bold;
+        }
+
+        .footer-logo span {
+            font-weight: normal;
+        }
+
+        .footer-links {
+            display: flex;
+
+            gap: 25px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+
+            color: #999;
+
+            font-size: 12px;
+        }
+
+        .copyright {
+            color: #666;
+
+            font-size: 11px;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            .about-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .story {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-hero {
+                padding: 60px 5%;
+            }
+
+            .about-hero h1 {
+                font-size: 55px;
+            }
+
+            .hero-image img {
+                height: 400px;
+            }
+
+            .story {
+                padding: 80px 5%;
+            }
+
+            .story-content h2 {
+                font-size: 45px;
+            }
+
+            .mission {
+                padding: 80px 5%;
+            }
+
+            .mission h2 {
+                font-size: 45px;
+            }
+
+            .values {
+                padding: 80px 5%;
+            }
+
+            .values-title h2 {
+                font-size: 45px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+
+                padding: 70px 5%;
+            }
+
+            .stat h3 {
+                font-size: 40px;
+            }
+
+            .cta h2 {
+                font-size: 48px;
+            }
+
+            footer {
+                flex-direction: column;
+
+                gap: 25px;
+
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            WTR<span>Lab</span>
+        </div>
+
+        <nav class="nav-links">
+
+            <a href="/home">
+                Home
+            </a>
+
+            <a href="/product">
+                Products
+            </a>
+
+            <a href="/about">
+                About Us
+            </a>
+
+        </nav>
+
+        <a href="/product" class="back-btn">
+            Explore Art
+        </a>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="about-hero">
+
+        <div>
+
+            <p class="small-title">
+                ABOUT WTRLAB
+            </p>
+
+            <h1>
+                Art meets
+                <span>technology.</span>
+            </h1>
+
+            <p class="hero-text">
+                WTRLab is a digital art platform created to
+                connect artists, technology and collectors.
+                We believe that technology can open new
+                possibilities for artistic expression.
+            </p>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1000&q=85"
+                alt="Art gallery"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STORY ================= -->
+
+    <section class="story">
+
+        <div class="story-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1577083552431-6e5fd01988f5?auto=format&fit=crop&w=1000&q=85"
+                alt="Digital artwork"
+            >
+
+        </div>
+
+
+        <div class="story-content">
+
+            <p class="small-title">
+                OUR STORY
+            </p>
+
+            <h2>
+                A new chapter
+                for collecting.
+            </h2>
+
+            <p>
+                The way we create and experience art is changing.
+                Digital technologies have given artists an entirely
+                new canvas, allowing them to experiment with motion,
+                code, 3D environments and interactive experiences.
+            </p>
+
+            <p>
+                WTRLab exists at this intersection. Our platform
+                provides a space where innovative artists can share
+                their work and collectors can discover meaningful
+                digital creations.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MISSION ================= -->
+
+    <section class="mission">
+
+        <p class="small-title">
+            OUR MISSION
+        </p>
+
+        <h2>
+            Making digital art
+            accessible, meaningful
+            and collectible.
+        </h2>
+
+        <p>
+            We want to create an environment where technology
+            supports creativity rather than replacing it. From
+            emerging digital artists to established creators,
+            WTRLab celebrates new forms of artistic expression.
+        </p>
+
+    </section>
+
+
+    <!-- ================= VALUES ================= -->
+
+    <section class="values">
+
+        <div class="values-title">
+
+            <p class="small-title">
+                WHAT WE BELIEVE
+            </p>
+
+            <h2>
+                Our Values
+            </h2>
+
+        </div>
+
+
+        <div class="values-grid">
+
+
+            <div class="value-card">
+
+                <p class="value-number">
+                    01
+                </p>
+
+                <h3>
+                    Creativity
+                </h3>
+
+                <p>
+                    We encourage artists to experiment,
+                    explore new ideas and push the boundaries
+                    of traditional art.
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <p class="value-number">
+                    02
+                </p>
+
+                <h3>
+                    Innovation
+                </h3>
+
+                <p>
+                    Technology gives artists new tools.
+                    We believe innovation can create entirely
+                    new artistic experiences.
+                </p>
+
+            </div>
+
+
+            <div class="value-card">
+
+                <p class="value-number">
+                    03
+                </p>
+
+                <h3>
+                    Community
+                </h3>
+
+                <p>
+                    Artists, collectors and audiences form
+                    the heart of digital art. We aim to bring
+                    these communities together.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="stats">
+
+        <div class="stat">
+
+            <h3>
+                50+
+            </h3>
+
+            <p>
+                ARTISTS
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>
+                100+
+            </h3>
+
+            <p>
+                ARTWORKS
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>
+                20+
+            </h3>
+
+            <p>
+                COLLECTIONS
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <h3>
+                10K+
+            </h3>
+
+            <p>
+                COLLECTORS
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta">
+
+        <p class="small-title">
+            DISCOVER WTRLAB
+        </p>
+
+        <h2>
+            Find your next
+            digital artwork.
+        </h2>
+
+        <p>
+            Explore our collection and discover artists
+            creating the future of digital art.
+        </p>
+
+        <a
+            href="/product"
+            class="cta-button"
+        >
+            Explore Collection →
+        </a>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            WTR<span>Lab</span>
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="/home">
+                Home
+            </a>
+
+            <a href="/product">
+                Products
+            </a>
+
+            <a href="/about">
+                About Us
+            </a>
+
+        </div>
+
+
+        <div class="copyright">
+            © 2026 WTRLab
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

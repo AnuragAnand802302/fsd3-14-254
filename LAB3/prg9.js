@@ -7,13 +7,21 @@ const server = http.createServer(async(req,res)=>{
         const stream = createReadStream("big.txt", {encoding: "utf-8"});
         stream.pipe(res);
     }else if(req.url === '/product'){
-        res.write("Loading....");
-        const text = await readFile("big.txt");
-        res.end(text);
+        res.setHeader("content-type","text/html");
+        res.statusCode = 200;
+        const data = createReadStream("product.html");
+        data.pipe(res);
     }else if(req.url === '/home'){
         res.setHeader("content-type","text/html");
         res.statusCode = 200;
         const data = createReadStream("index.html");
+        data.pipe(res);
+    }else if(req.url === "/about"){
+        res.setHeader("content-type", "text/html");
+        res.statusCode = 200;
+
+        const data = createReadStream("about.html");
+
         data.pipe(res);
     }
     // res.end();

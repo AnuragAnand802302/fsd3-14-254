@@ -1,0 +1,2552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WTRLab | Digital Art Collection</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f5f4ef;
+            color: #171717;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            height: 82px;
+
+            padding: 0 6%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: #f5f4ef;
+
+            border-bottom: 1px solid #deddd7;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+        }
+
+        .logo span {
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #222;
+
+            font-size: 13px;
+
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #888;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .icon-btn {
+            border: none;
+            background: transparent;
+
+            font-size: 22px;
+
+            padding: 8px;
+        }
+
+        .cart-btn {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+
+            top: 0;
+            right: 0;
+
+            width: 17px;
+            height: 17px;
+
+            border-radius: 50%;
+
+            background: #171717;
+            color: white;
+
+            font-size: 9px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu {
+            display: none;
+
+            border: none;
+            background: transparent;
+
+            font-size: 25px;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 580px;
+
+            padding: 80px 7%;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 70px;
+
+            overflow: hidden;
+        }
+
+        .hero-label {
+            font-size: 11px;
+
+            letter-spacing: 2.5px;
+
+            color: #777;
+
+            font-weight: 600;
+
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(55px, 7vw, 92px);
+
+            font-weight: 400;
+
+            line-height: 0.95;
+
+            max-width: 650px;
+        }
+
+        .hero h1 em {
+            display: block;
+
+            font-style: italic;
+        }
+
+        .hero-text {
+            color: #6e6e6e;
+
+            line-height: 1.8;
+
+            max-width: 480px;
+
+            margin-top: 30px;
+
+            font-size: 14px;
+        }
+
+        .hero-button {
+            display: inline-block;
+
+            margin-top: 32px;
+
+            background: #171717;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 15px 27px;
+
+            border-radius: 30px;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           HERO IMAGE
+        ===================================================== */
+
+        .hero-visual {
+            position: relative;
+
+            display: flex;
+
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 440px;
+            height: 500px;
+
+            object-fit: cover;
+
+            box-shadow: 25px 25px 0 #dedbd1;
+        }
+
+        .hero-caption {
+            position: absolute;
+
+            bottom: -35px;
+            left: 20px;
+
+            background: #171717;
+
+            color: white;
+
+            padding: 18px 25px;
+
+            min-width: 210px;
+        }
+
+        .hero-caption small {
+            color: #aaa;
+
+            font-size: 9px;
+
+            letter-spacing: 1.5px;
+        }
+
+        .hero-caption h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 20px;
+
+            font-weight: 400;
+
+            margin-top: 5px;
+        }
+
+
+        /* =====================================================
+           COLLECTION HEADER
+        ===================================================== */
+
+        .products-section {
+            padding: 120px 7%;
+        }
+
+        .section-top {
+            display: flex;
+
+            align-items: end;
+
+            justify-content: space-between;
+
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            color: #777;
+
+            margin-bottom: 13px;
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+
+            font-size: 55px;
+
+            font-weight: 400;
+        }
+
+
+        /* =====================================================
+           FILTERS
+        ===================================================== */
+
+        .filters {
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+            margin-bottom: 40px;
+        }
+
+        .filter {
+            padding: 10px 18px;
+
+            border: 1px solid #d3d2cc;
+
+            background: transparent;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+
+            transition: 0.25s;
+        }
+
+        .filter:hover,
+        .filter.active {
+            background: #171717;
+
+            color: white;
+
+            border-color: #171717;
+        }
+
+
+        /* =====================================================
+           PRODUCT GRID
+        ===================================================== */
+
+        .product-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 45px 25px;
+        }
+
+        .product-card {
+            background: transparent;
+
+            position: relative;
+
+            cursor: pointer;
+        }
+
+        .product-image-wrapper {
+            position: relative;
+
+            overflow: hidden;
+
+            background: #ddd;
+        }
+
+        .product-image {
+            display: block;
+
+            width: 100%;
+
+            height: 430px;
+
+            object-fit: cover;
+
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-tag {
+            position: absolute;
+
+            top: 15px;
+            left: 15px;
+
+            background: white;
+
+            padding: 7px 11px;
+
+            font-size: 9px;
+
+            letter-spacing: 1px;
+
+            z-index: 2;
+        }
+
+        .quick-view {
+            position: absolute;
+
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+
+            padding: 13px;
+
+            background: rgba(255,255,255,0.94);
+
+            border: none;
+
+            font-size: 11px;
+
+            opacity: 0;
+
+            transform: translateY(10px);
+
+            transition: 0.3s;
+        }
+
+        .product-card:hover .quick-view {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+        .product-info {
+            padding-top: 18px;
+        }
+
+        .product-category {
+            color: #888;
+
+            font-size: 10px;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+        .product-name {
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            font-weight: 400;
+
+            margin-top: 5px;
+        }
+
+        .product-bottom {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 12px;
+        }
+
+        .artist {
+            font-size: 11px;
+
+            color: #777;
+        }
+
+        .price {
+            font-size: 13px;
+
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           FEATURED PRODUCT
+        ===================================================== */
+
+        .featured {
+            background: #191919;
+
+            color: white;
+
+            padding: 100px 7%;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+        .featured-image {
+            width: 100%;
+
+            height: 600px;
+
+            object-fit: cover;
+        }
+
+        .featured-label {
+            color: #aaa;
+
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 20px;
+        }
+
+        .featured h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 65px;
+
+            font-weight: 400;
+
+            line-height: 1;
+        }
+
+        .featured-description {
+            color: #aaa;
+
+            line-height: 1.8;
+
+            font-size: 13px;
+
+            max-width: 450px;
+
+            margin-top: 30px;
+        }
+
+        .featured-price {
+            font-size: 22px;
+
+            margin-top: 30px;
+        }
+
+        .featured-button {
+            margin-top: 30px;
+
+            padding: 15px 28px;
+
+            border: 1px solid white;
+
+            background: white;
+
+            color: #171717;
+
+            border-radius: 30px;
+        }
+
+
+        /* =====================================================
+           ARTIST SECTION
+        ===================================================== */
+
+        .artist-section {
+            padding: 120px 7%;
+        }
+
+        .artist-container {
+            display: grid;
+
+            grid-template-columns: 250px 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .artist-photo {
+            width: 220px;
+
+            height: 220px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+        }
+
+        .artist-section h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 55px;
+
+            font-weight: 400;
+        }
+
+        .artist-description {
+            max-width: 600px;
+
+            color: #777;
+
+            line-height: 1.8;
+
+            margin-top: 20px;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           NEWSLETTER
+        ===================================================== */
+
+        .newsletter {
+            padding: 110px 20px;
+
+            text-align: center;
+
+            background: #e4e1d8;
+        }
+
+        .newsletter-label {
+            font-size: 10px;
+
+            letter-spacing: 2px;
+
+            color: #777;
+
+            margin-bottom: 20px;
+        }
+
+        .newsletter h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 60px;
+
+            font-weight: 400;
+
+            line-height: 1;
+        }
+
+        .newsletter p {
+            color: #777;
+
+            font-size: 13px;
+
+            margin-top: 20px;
+        }
+
+        .email-form {
+            max-width: 480px;
+
+            margin: 35px auto 0;
+
+            display: flex;
+
+            background: white;
+
+            padding: 5px;
+
+            border-radius: 40px;
+        }
+
+        .email-form input {
+            flex: 1;
+
+            border: none;
+
+            outline: none;
+
+            padding: 13px 18px;
+
+            background: transparent;
+        }
+
+        .email-form button {
+            border: none;
+
+            background: #171717;
+
+            color: white;
+
+            padding: 0 24px;
+
+            border-radius: 30px;
+        }
+
+        #subscribeMessage {
+            margin-top: 15px;
+
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #111;
+
+            color: white;
+
+            padding: 55px 7%;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr 1fr;
+
+            gap: 30px;
+        }
+
+        .footer-logo {
+            font-size: 25px;
+
+            font-weight: 700;
+        }
+
+        .footer-logo span {
+            font-weight: 400;
+        }
+
+        .footer-links {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+
+            color: #999;
+
+            font-size: 12px;
+        }
+
+        .footer-copy {
+            text-align: right;
+
+            color: #666;
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =====================================================
+           MODAL
+        ===================================================== */
+
+        .modal {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0,0,0,0.7);
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 500;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #f5f4ef;
+
+            width: min(900px, 92%);
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            position: relative;
+
+            padding: 30px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 35px;
+        }
+
+        .modal-image {
+            width: 100%;
+
+            height: 520px;
+
+            object-fit: cover;
+        }
+
+        .modal-info {
+            padding: 25px 10px;
+        }
+
+        .modal-category {
+            color: #888;
+
+            font-size: 10px;
+
+            letter-spacing: 1.5px;
+        }
+
+        .modal-info h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 45px;
+
+            font-weight: 400;
+
+            margin-top: 10px;
+        }
+
+        .modal-artist {
+            color: #777;
+
+            font-size: 13px;
+
+            margin-top: 10px;
+        }
+
+        .modal-description {
+            color: #777;
+
+            line-height: 1.8;
+
+            font-size: 13px;
+
+            margin-top: 30px;
+        }
+
+        .modal-price {
+            font-size: 20px;
+
+            font-weight: 600;
+
+            margin-top: 30px;
+        }
+
+        .add-cart {
+            width: 100%;
+
+            padding: 15px;
+
+            margin-top: 20px;
+
+            background: #171717;
+
+            color: white;
+
+            border: none;
+        }
+
+        .close-modal {
+            position: absolute;
+
+            right: 15px;
+            top: 10px;
+
+            border: none;
+
+            background: white;
+
+            width: 35px;
+            height: 35px;
+
+            border-radius: 50%;
+
+            font-size: 20px;
+
+            z-index: 5;
+        }
+
+
+        /* =====================================================
+           CART SIDEBAR
+        ===================================================== */
+
+        .cart-sidebar {
+            position: fixed;
+
+            top: 0;
+            right: -420px;
+
+            width: min(420px, 90%);
+
+            height: 100vh;
+
+            background: #f5f4ef;
+
+            z-index: 700;
+
+            padding: 30px;
+
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+
+            transition: right 0.35s ease;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-bottom: 1px solid #ddd;
+
+            padding-bottom: 20px;
+        }
+
+        .cart-header h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 30px;
+
+            font-weight: 400;
+        }
+
+        .close-cart {
+            border: none;
+
+            background: none;
+
+            font-size: 25px;
+        }
+
+        .cart-items {
+            margin-top: 25px;
+        }
+
+        .empty-cart {
+            color: #888;
+
+            text-align: center;
+
+            padding-top: 70px;
+
+            font-size: 13px;
+        }
+
+        .cart-item {
+            display: flex;
+
+            gap: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .cart-item img {
+            width: 75px;
+
+            height: 75px;
+
+            object-fit: cover;
+        }
+
+        .cart-item h4 {
+            font-family: "Playfair Display", serif;
+
+            font-weight: 400;
+
+            font-size: 18px;
+        }
+
+        .cart-item p {
+            color: #777;
+
+            font-size: 11px;
+
+            margin-top: 5px;
+        }
+
+        .cart-total {
+            position: absolute;
+
+            left: 30px;
+            right: 30px;
+            bottom: 30px;
+
+            border-top: 1px solid #ddd;
+
+            padding-top: 20px;
+        }
+
+        .total-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 15px;
+
+            font-size: 14px;
+        }
+
+        .checkout {
+            width: 100%;
+
+            padding: 15px;
+
+            background: #171717;
+
+            color: white;
+
+            border: none;
+        }
+
+
+        /* =====================================================
+           SEARCH
+        ===================================================== */
+
+        .search-box {
+            position: fixed;
+
+            top: -200px;
+
+            left: 0;
+            right: 0;
+
+            background: #f5f4ef;
+
+            padding: 35px 7%;
+
+            z-index: 300;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+            transition: top 0.3s;
+        }
+
+        .search-box.active {
+            top: 82px;
+        }
+
+        .search-input {
+            width: 100%;
+
+            border: none;
+
+            border-bottom: 1px solid #999;
+
+            background: transparent;
+
+            padding: 15px 0;
+
+            outline: none;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 30px;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                padding-top: 60px;
+            }
+
+            .hero-visual {
+                margin-top: 30px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+            }
+
+            .artist-container {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                height: 70px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero {
+                padding: 55px 5%;
+
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .hero-image {
+                width: 90%;
+
+                height: 420px;
+            }
+
+            .products-section {
+                padding: 80px 5%;
+            }
+
+            .section-title {
+                font-size: 42px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 450px;
+            }
+
+            .featured {
+                padding: 80px 5%;
+            }
+
+            .featured h2 {
+                font-size: 50px;
+            }
+
+            .featured-image {
+                height: 450px;
+            }
+
+            .artist-section {
+                padding: 80px 5%;
+            }
+
+            .artist-section h2 {
+                font-size: 45px;
+            }
+
+            .newsletter h2 {
+                font-size: 48px;
+            }
+
+            footer {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+            .footer-links {
+                align-items: center;
+            }
+
+            .footer-copy {
+                text-align: center;
+            }
+
+            .modal-content {
+                padding: 15px;
+            }
+
+            .modal-image {
+                height: 350px;
+            }
+
+            .modal-info h2 {
+                font-size: 38px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            WTR<span>Lab</span>
+        </div>
+
+
+        <nav class="nav-links">
+
+            <a href="#collection">
+                Collection
+            </a>
+
+            <a href="#featured">
+                Featured
+            </a>
+
+            <a href="#artists">
+                Artists
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <button class="icon-btn" id="searchBtn">
+                ⌕
+            </button>
+
+            <button class="icon-btn cart-btn" id="cartBtn">
+
+                🛒
+
+                <span class="cart-count" id="cartCount">
+                    0
+                </span>
+
+            </button>
+
+            <button class="mobile-menu">
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         SEARCH
+    ====================================================== -->
+
+    <div class="search-box" id="searchBox">
+
+        <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Search artworks..."
+        >
+
+    </div>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero">
+
+        <div>
+
+            <p class="hero-label">
+                WTRLAB DIGITAL COLLECTION
+            </p>
+
+            <h1>
+                Art beyond
+                <em>the canvas.</em>
+            </h1>
+
+            <p class="hero-text">
+                Discover a curated collection of digital
+                artworks where contemporary creativity
+                meets technology. Collect unique works
+                from emerging and established artists.
+            </p>
+
+            <a
+                href="#collection"
+                class="hero-button"
+            >
+                Explore Collection
+            </a>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <img
+                class="hero-image"
+                src="https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?auto=format&fit=crop&w=900&q=85"
+                alt="Featured digital artwork"
+            >
+
+            <div class="hero-caption">
+
+                <small>
+                    FEATURED WORK
+                </small>
+
+                <h3>
+                    Fragments of Reality
+                </h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         COLLECTION
+    ====================================================== -->
+
+    <section
+        class="products-section"
+        id="collection"
+    >
+
+        <div class="section-top">
+
+            <div>
+
+                <p class="section-label">
+                    THE COLLECTION
+                </p>
+
+                <h2 class="section-title">
+                    Digital Works
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <!-- FILTERS -->
+
+        <div class="filters">
+
+            <button
+                class="filter active"
+                data-category="all"
+            >
+                All
+            </button>
+
+            <button
+                class="filter"
+                data-category="digital"
+            >
+                Digital Art
+            </button>
+
+            <button
+                class="filter"
+                data-category="generative"
+            >
+                Generative
+            </button>
+
+            <button
+                class="filter"
+                data-category="3d"
+            >
+                3D
+            </button>
+
+            <button
+                class="filter"
+                data-category="photography"
+            >
+                Photography
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCTS -->
+
+        <div
+            class="product-grid"
+            id="productGrid"
+        >
+
+
+            <!-- PRODUCT 1 -->
+
+            <article
+                class="product-card"
+                data-category="digital"
+                data-name="Fragments of Reality"
+                data-artist="Alex Morgan"
+                data-price="1200"
+                data-image="https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?auto=format&fit=crop&w=900&q=85"
+            >
+
+                <div class="product-image-wrapper">
+
+                    <span class="product-tag">
+                        DIGITAL
+                    </span>
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?auto=format&fit=crop&w=900&q=85"
+                        alt="Fragments of Reality"
+                    >
+
+                    <button class="quick-view">
+                        Quick View
+                    </button>
+
+                </div>
+
+                <div class="product-info">
+
+                    <p class="product-category">
+                        Digital Art
+                    </p>
+
+                    <h3 class="product-name">
+                        Fragments of Reality
+                    </h3>
+
+                    <div class="product-bottom">
+
+                        <span class="artist">
+                            Alex Morgan
+                        </span>
+
+                        <span class="price">
+                            $1,200
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCT 2 -->
+
+            <article
+                class="product-card"
+                data-category="generative"
+                data-name="New Dimensions"
+                data-artist="Sophia Lee"
+                data-price="1850"
+                data-image="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=900&q=85"
+            >
+
+                <div class="product-image-wrapper">
+
+                    <span class="product-tag">
+                        NEW
+                    </span>
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=900&q=85"
+                        alt="New Dimensions"
+                    >
+
+                    <button class="quick-view">
+                        Quick View
+                    </button>
+
+                </div>
+
+                <div class="product-info">
+
+                    <p class="product-category">
+                        Generative Art
+                    </p>
+
+                    <h3 class="product-name">
+                        New Dimensions
+                    </h3>
+
+                    <div class="product-bottom">
+
+                        <span class="artist">
+                            Sophia Lee
+                        </span>
+
+                        <span class="price">
+                            $1,850
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCT 3 -->
+
+            <article
+                class="product-card"
+                data-category="3d"
+                data-name="Synthetic Nature"
+                data-artist="Daniel Kim"
+                data-price="2400"
+                data-image="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=900&q=85"
+            >
+
+                <div class="product-image-wrapper">
+
+                    <span class="product-tag">
+                        3D
+                    </span>
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=900&q=85"
+                        alt="Synthetic Nature"
+                    >
+
+                    <button class="quick-view">
+                        Quick View
+                    </button>
+
+                </div>
+
+                <div class="product-info">
+
+                    <p class="product-category">
+                        3D Art
+                    </p>
+
+                    <h3 class="product-name">
+                        Synthetic Nature
+                    </h3>
+
+                    <div class="product-bottom">
+
+                        <span class="artist">
+                            Daniel Kim
+                        </span>
+
+                        <span class="price">
+                            $2,400
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCT 4 -->
+
+            <article
+                class="product-card"
+                data-category="photography"
+                data-name="Silent Architecture"
+                data-artist="Emma Wilson"
+                data-price="950"
+                data-image="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=85"
+            >
+
+                <div class="product-image-wrapper">
+
+                    <span class="product-tag">
+                        LIMITED
+                    </span>
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=900&q=85"
+                        alt="Silent Architecture"
+                    >
+
+                    <button class="quick-view">
+                        Quick View
+                    </button>
+
+                </div>
+
+                <div class="product-info">
+
+                    <p class="product-category">
+                        Photography
+                    </p>
+
+                    <h3 class="product-name">
+                        Silent Architecture
+                    </h3>
+
+                    <div class="product-bottom">
+
+                        <span class="artist">
+                            Emma Wilson
+                        </span>
+
+                        <span class="price">
+                            $950
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCT 5 -->
+
+            <article
+                class="product-card"
+                data-category="digital"
+                data-name="After the Future"
+                data-artist="Lucas Chen"
+                data-price="1600"
+                data-image="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=900&q=85"
+            >
+
+                <div class="product-image-wrapper">
+
+                    <span class="product-tag">
+                        DIGITAL
+                    </span>
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=900&q=85"
+                        alt="After the Future"
+                    >
+
+                    <button class="quick-view">
+                        Quick View
+                    </button>
+
+                </div>
+
+                <div class="product-info">
+
+                    <p class="product-category">
+                        Digital Art
+                    </p>
+
+                    <h3 class="product-name">
+                        After the Future
+                    </h3>
+
+                    <div class="product-bottom">
+
+                        <span class="artist">
+                            Lucas Chen
+                        </span>
+
+                        <span class="price">
+                            $1,600
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCT 6 -->
+
+            <article
+                class="product-card"
+                data-category="generative"
+                data-name="Infinite Bloom"
+                data-artist="Maya Patel"
+                data-price="2100"
+                data-image="https://images.unsplash.com/photo-1577083552431-6e5fd01988f5?auto=format&fit=crop&w=900&q=85"
+            >
+
+                <div class="product-image-wrapper">
+
+                    <span class="product-tag">
+                        EDITION
+                    </span>
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1577083552431-6e5fd01988f5?auto=format&fit=crop&w=900&q=85"
+                        alt="Infinite Bloom"
+                    >
+
+                    <button class="quick-view">
+                        Quick View
+                    </button>
+
+                </div>
+
+                <div class="product-info">
+
+                    <p class="product-category">
+                        Generative Art
+                    </p>
+
+                    <h3 class="product-name">
+                        Infinite Bloom
+                    </h3>
+
+                    <div class="product-bottom">
+
+                        <span class="artist">
+                            Maya Patel
+                        </span>
+
+                        <span class="price">
+                            $2,100
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FEATURED PRODUCT
+    ====================================================== -->
+
+    <section
+        class="featured"
+        id="featured"
+    >
+
+        <img
+            class="featured-image"
+            src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1000&q=85"
+            alt="The Digital Garden"
+        >
+
+
+        <div>
+
+            <p class="featured-label">
+                WTRLAB FEATURED RELEASE
+            </p>
+
+            <h2>
+                The Digital
+                Garden
+            </h2>
+
+            <p class="featured-description">
+                A limited digital artwork exploring the
+                relationship between natural forms and
+                computational systems. The collection
+                combines organic textures with generative
+                structures.
+            </p>
+
+            <p class="featured-price">
+                $3,200
+            </p>
+
+            <button
+                class="featured-button"
+                id="featuredAdd"
+            >
+                Add to Collection
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         ARTIST
+    ====================================================== -->
+
+    <section
+        class="artist-section"
+        id="artists"
+    >
+
+        <div class="artist-container">
+
+            <img
+                class="artist-photo"
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85"
+                alt="Artist Sophia Lee"
+            >
+
+
+            <div>
+
+                <p class="section-label">
+                    ARTIST OF THE MONTH
+                </p>
+
+                <h2>
+                    Sophia Lee
+                </h2>
+
+                <p class="artist-description">
+                    Sophia Lee is a contemporary digital artist
+                    exploring the intersection of technology,
+                    nature and human perception. Her work
+                    transforms mathematical structures into
+                    immersive visual experiences.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         NEWSLETTER
+    ====================================================== -->
+
+    <section class="newsletter">
+
+        <p class="newsletter-label">
+            WTRLAB JOURNAL
+        </p>
+
+        <h2>
+            Stay close to
+            the art.
+        </h2>
+
+        <p>
+            Receive new releases, artist stories and
+            collection announcements.
+        </p>
+
+
+        <form
+            class="email-form"
+            id="emailForm"
+        >
+
+            <input
+                type="email"
+                id="emailInput"
+                placeholder="Your email address"
+                required
+            >
+
+            <button type="submit">
+                Subscribe
+            </button>
+
+        </form>
+
+        <div id="subscribeMessage"></div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            WTR<span>Lab</span>
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#collection">
+                Collection
+            </a>
+
+            <a href="#featured">
+                Featured
+            </a>
+
+            <a href="#artists">
+                Artists
+            </a>
+
+            <a href="#">
+                Instagram
+            </a>
+
+        </div>
+
+
+        <div class="footer-copy">
+
+            © 2026 WTRLab
+
+            <br>
+
+            Digital art and culture.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         PRODUCT MODAL
+    ====================================================== -->
+
+    <div
+        class="modal"
+        id="productModal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="close-modal"
+                id="closeModal"
+            >
+                ×
+            </button>
+
+
+            <img
+                class="modal-image"
+                id="modalImage"
+                src=""
+                alt=""
+            >
+
+
+            <div class="modal-info">
+
+                <p
+                    class="modal-category"
+                    id="modalCategory"
+                >
+                </p>
+
+                <h2 id="modalName">
+                </h2>
+
+                <p
+                    class="modal-artist"
+                    id="modalArtist"
+                >
+                </p>
+
+                <p class="modal-description">
+                    An original digital artwork from the
+                    WTRLab collection. Each work represents
+                    a unique exploration of contemporary
+                    digital culture and artistic expression.
+                </p>
+
+                <p
+                    class="modal-price"
+                    id="modalPrice"
+                >
+                </p>
+
+                <button
+                    class="add-cart"
+                    id="modalAddCart"
+                >
+                    Add to Collection
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CART SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="cart-sidebar"
+        id="cartSidebar"
+    >
+
+        <div class="cart-header">
+
+            <h2>
+                Your Collection
+            </h2>
+
+            <button
+                class="close-cart"
+                id="closeCart"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            class="cart-items"
+            id="cartItems"
+        >
+
+            <p class="empty-cart">
+                Your collection is empty.
+            </p>
+
+        </div>
+
+
+        <div class="cart-total">
+
+            <div class="total-row">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="cartTotal">
+                    $0
+                </strong>
+
+            </div>
+
+            <button class="checkout">
+                Continue to Checkout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        const productCards =
+            document.querySelectorAll(".product-card");
+
+        const filters =
+            document.querySelectorAll(".filter");
+
+        const productModal =
+            document.getElementById("productModal");
+
+        const modalImage =
+            document.getElementById("modalImage");
+
+        const modalName =
+            document.getElementById("modalName");
+
+        const modalArtist =
+            document.getElementById("modalArtist");
+
+        const modalPrice =
+            document.getElementById("modalPrice");
+
+        const modalCategory =
+            document.getElementById("modalCategory");
+
+        const closeModal =
+            document.getElementById("closeModal");
+
+        const modalAddCart =
+            document.getElementById("modalAddCart");
+
+        const cartBtn =
+            document.getElementById("cartBtn");
+
+        const cartSidebar =
+            document.getElementById("cartSidebar");
+
+        const closeCart =
+            document.getElementById("closeCart");
+
+        const cartItems =
+            document.getElementById("cartItems");
+
+        const cartCount =
+            document.getElementById("cartCount");
+
+        const cartTotal =
+            document.getElementById("cartTotal");
+
+        const searchBtn =
+            document.getElementById("searchBtn");
+
+        const searchBox =
+            document.getElementById("searchBox");
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+
+        let selectedProduct = null;
+
+        let cart = [];
+
+
+
+        /* =====================================================
+           FILTER PRODUCTS
+        ====================================================== */
+
+        filters.forEach(filter => {
+
+            filter.addEventListener("click", () => {
+
+                filters.forEach(item => {
+                    item.classList.remove("active");
+                });
+
+                filter.classList.add("active");
+
+                const category =
+                    filter.dataset.category;
+
+
+                productCards.forEach(card => {
+
+                    if (
+                        category === "all" ||
+                        card.dataset.category === category
+                    ) {
+
+                        card.style.display = "block";
+
+                    } else {
+
+                        card.style.display = "none";
+
+                    }
+
+                });
+
+            });
+
+        });
+
+
+
+        /* =====================================================
+           PRODUCT MODAL
+        ====================================================== */
+
+        productCards.forEach(card => {
+
+            card.addEventListener("click", () => {
+
+                selectedProduct = {
+
+                    name: card.dataset.name,
+
+                    artist: card.dataset.artist,
+
+                    price: Number(card.dataset.price),
+
+                    image: card.dataset.image,
+
+                    category: card.dataset.category
+
+                };
+
+
+                modalImage.src =
+                    selectedProduct.image;
+
+                modalImage.alt =
+                    selectedProduct.name;
+
+                modalName.textContent =
+                    selectedProduct.name;
+
+                modalArtist.textContent =
+                    "By " + selectedProduct.artist;
+
+                modalPrice.textContent =
+                    "$" +
+                    selectedProduct.price.toLocaleString();
+
+                modalCategory.textContent =
+                    selectedProduct.category.toUpperCase();
+
+
+                productModal.classList.add("active");
+
+            });
+
+        });
+
+
+        closeModal.addEventListener("click", () => {
+
+            productModal.classList.remove("active");
+
+        });
+
+
+        productModal.addEventListener("click", event => {
+
+            if (event.target === productModal) {
+
+                productModal.classList.remove("active");
+
+            }
+
+        });
+
+
+
+        /* =====================================================
+           ADD TO CART
+        ====================================================== */
+
+        function addToCart(product) {
+
+            cart.push(product);
+
+            updateCart();
+
+            productModal.classList.remove("active");
+
+            cartSidebar.classList.add("active");
+
+        }
+
+
+        modalAddCart.addEventListener("click", () => {
+
+            if (selectedProduct) {
+
+                addToCart(selectedProduct);
+
+            }
+
+        });
+
+
+        /* Featured product */
+
+        document
+            .getElementById("featuredAdd")
+            .addEventListener("click", () => {
+
+                addToCart({
+
+                    name: "The Digital Garden",
+
+                    artist: "WTRLab Featured Artist",
+
+                    price: 3200,
+
+                    image:
+                        "https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1000&q=85",
+
+                    category: "Featured"
+
+                });
+
+            });
+
+
+
+        /* =====================================================
+           UPDATE CART
+        ====================================================== */
+
+        function updateCart() {
+
+            cartCount.textContent =
+                cart.length;
+
+
+            if (cart.length === 0) {
+
+                cartItems.innerHTML = `
+                    <p class="empty-cart">
+                        Your collection is empty.
+                    </p>
+                `;
+
+                cartTotal.textContent = "$0";
+
+                return;
+
+            }
+
+
+            cartItems.innerHTML = "";
+
+
+            let total = 0;
+
+
+            cart.forEach((item, index) => {
+
+                total += item.price;
+
+
+                const cartItem =
+                    document.createElement("div");
+
+                cartItem.className =
+                    "cart-item";
+
+
+                cartItem.innerHTML = `
+
+                    <img
+                        src="${item.image}"
+                        alt="${item.name}"
+                    >
+
+                    <div>
+
+                        <h4>
+                            ${item.name}
+                        </h4>
+
+                        <p>
+                            ${item.artist}
+                        </p>
+
+                        <p>
+                            $${item.price.toLocaleString()}
+                        </p>
+
+                    </div>
+
+                `;
+
+
+                cartItems.appendChild(cartItem);
+
+            });
+
+
+            cartTotal.textContent =
+                "$" + total.toLocaleString();
+
+        }
+
+
+
+        /* =====================================================
+           CART SIDEBAR
+        ====================================================== */
+
+        cartBtn.addEventListener("click", () => {
+
+            cartSidebar.classList.add("active");
+
+        });
+
+
+        closeCart.addEventListener("click", () => {
+
+            cartSidebar.classList.remove("active");
+
+        });
+
+
+
+        /* =====================================================
+           SEARCH
+        ====================================================== */
+
+        searchBtn.addEventListener("click", () => {
+
+            searchBox.classList.toggle("active");
+
+            if (searchBox.classList.contains("active")) {
+
+                searchInput.focus();
+
+            }
+
+        });
+
+
+        searchInput.addEventListener("input", () => {
+
+            const search =
+                searchInput.value.toLowerCase().trim();
+
+
+            productCards.forEach(card => {
+
+                const name =
+                    card.dataset.name.toLowerCase();
+
+                const artist =
+                    card.dataset.artist.toLowerCase();
+
+
+                if (
+                    name.includes(search) ||
+                    artist.includes(search)
+                ) {
+
+                    card.style.display = "block";
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+
+
+        /* =====================================================
+           NEWSLETTER
+        ====================================================== */
+
+        const emailForm =
+            document.getElementById("emailForm");
+
+        const emailInput =
+            document.getElementById("emailInput");
+
+        const subscribeMessage =
+            document.getElementById(
+                "subscribeMessage"
+            );
+
+
+        emailForm.addEventListener("submit", event => {
+
+            event.preventDefault();
+
+
+            if (emailInput.value.trim() === "") {
+
+                return;
+
+            }
+
+
+            subscribeMessage.textContent =
+                "Thank you. You're now subscribed to WTRLab.";
+
+            emailInput.value = "";
+
+        });
+
+
+
+        /* =====================================================
+           ESCAPE KEY
+        ====================================================== */
+
+        document.addEventListener("keydown", event => {
+
+            if (event.key === "Escape") {
+
+                productModal.classList.remove("active");
+
+                cartSidebar.classList.remove("active");
+
+                searchBox.classList.remove("active");
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

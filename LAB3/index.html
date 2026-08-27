@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WTRLab | Digital Art</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: #f7f6f2;
+            color: #171717;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            height: 82px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background: #f7f6f2;
+
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            font-weight: 400;
+        }
+
+        .navbar nav {
+            display: flex;
+            gap: 35px;
+        }
+
+        .navbar nav a {
+            color: #222;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .navbar nav a:hover {
+            opacity: 0.5;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-btn {
+            border: none;
+            background: none;
+
+            font-size: 25px;
+
+            cursor: pointer;
+        }
+
+        .connect-btn {
+            background: #171717;
+            color: white;
+
+            border: none;
+            border-radius: 30px;
+
+            padding: 12px 20px;
+
+            cursor: pointer;
+        }
+
+        .connect-btn:hover {
+            background: #444;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 720px;
+
+            padding: 80px 7%;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 70px;
+        }
+
+        .small-heading {
+            font-size: 11px;
+            letter-spacing: 2px;
+
+            font-weight: 600;
+
+            margin-bottom: 20px;
+
+            color: #777;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(55px, 7vw, 100px);
+
+            line-height: 0.95;
+
+            font-weight: 500;
+
+            max-width: 650px;
+        }
+
+        .hero h1 span {
+            display: block;
+            font-style: italic;
+        }
+
+        .hero-description {
+            max-width: 470px;
+
+            margin-top: 35px;
+
+            line-height: 1.7;
+
+            color: #666;
+        }
+
+        .hero-buttons {
+            margin-top: 35px;
+
+            display: flex;
+
+            gap: 15px;
+
+            align-items: center;
+        }
+
+        .primary-btn {
+            display: inline-block;
+
+            padding: 14px 25px;
+
+            background: #171717;
+            color: white;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            border: none;
+
+            cursor: pointer;
+        }
+
+        .primary-btn:hover {
+            background: #444;
+        }
+
+        .secondary-btn {
+            color: #171717;
+
+            text-decoration: none;
+
+            padding: 14px 20px;
+        }
+
+
+        /* =========================
+           HERO ART
+        ========================= */
+
+        .hero-art {
+            display: flex;
+
+            justify-content: center;
+        }
+
+        .art-card {
+            width: 470px;
+
+            background: white;
+
+            padding: 10px;
+
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.12);
+        }
+
+        .art-card img {
+            width: 100%;
+
+            height: 550px;
+
+            object-fit: cover;
+        }
+
+        .art-info {
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 18px 10px 8px;
+        }
+
+        .art-info p {
+            font-size: 11px;
+
+            color: #888;
+
+            margin-bottom: 5px;
+        }
+
+        .art-info h3 {
+            font-size: 15px;
+        }
+
+        .art-info span {
+            font-size: 11px;
+
+            color: #777;
+        }
+
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        .section {
+            padding: 110px 7%;
+        }
+
+        .section-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: end;
+
+            margin-bottom: 45px;
+        }
+
+        .section-header h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 55px;
+
+            font-weight: 500;
+        }
+
+        .view-all {
+            background: none;
+
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           COLLECTIONS
+        ========================= */
+
+        .collection-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .collection-card {
+            background: white;
+
+            cursor: pointer;
+
+            transition: transform 0.3s ease;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .collection-card img {
+            width: 100%;
+
+            height: 390px;
+
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 22px;
+        }
+
+        .card-content p {
+            color: #888;
+
+            font-size: 11px;
+
+            margin-bottom: 8px;
+        }
+
+        .card-content h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            margin-bottom: 12px;
+        }
+
+        .card-content span {
+            font-size: 12px;
+
+            color: #777;
+        }
+
+
+        /* =========================
+           ARTISTS
+        ========================= */
+
+        .artists-section {
+            padding: 100px 7%;
+
+            background: #171717;
+
+            color: white;
+        }
+
+        .artists-section .small-heading {
+            color: #aaa;
+        }
+
+        .artists-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 35px;
+        }
+
+        .artist {
+            text-align: center;
+        }
+
+        .artist-image {
+            width: 100%;
+
+            aspect-ratio: 1;
+
+            overflow: hidden;
+
+            border-radius: 50%;
+
+            margin-bottom: 20px;
+        }
+
+        .artist-image img {
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform 0.5s;
+        }
+
+        .artist:hover img {
+            transform: scale(1.08);
+        }
+
+        .artist h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 22px;
+
+            margin-bottom: 7px;
+        }
+
+        .artist p {
+            color: #999;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            padding: 130px 7%;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+
+            gap: 90px;
+        }
+
+        .about-image img {
+            width: 100%;
+
+            height: 600px;
+
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 65px;
+
+            line-height: 1;
+
+            font-weight: 500;
+
+            margin-bottom: 30px;
+        }
+
+        .about-content > p:not(.small-heading) {
+            max-width: 450px;
+
+            line-height: 1.8;
+
+            color: #666;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           NEWSLETTER
+        ========================= */
+
+        .newsletter {
+            padding: 120px 20px;
+
+            text-align: center;
+
+            background: #e8e5dd;
+        }
+
+        .newsletter h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 65px;
+
+            max-width: 700px;
+
+            margin: auto;
+
+            line-height: 1;
+        }
+
+        .email-box {
+            max-width: 500px;
+
+            margin: 45px auto 0;
+
+            display: flex;
+
+            background: white;
+
+            padding: 6px;
+
+            border-radius: 40px;
+        }
+
+        .email-box input {
+            flex: 1;
+
+            border: none;
+
+            outline: none;
+
+            padding: 14px 20px;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+        }
+
+        .email-box button {
+            border: none;
+
+            background: #171717;
+
+            color: white;
+
+            padding: 0 25px;
+
+            border-radius: 30px;
+
+            cursor: pointer;
+        }
+
+        #message {
+            margin-top: 15px;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 50px 7%;
+
+            background: #111;
+
+            color: white;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 25px;
+
+            font-weight: 700;
+        }
+
+        .footer-logo span {
+            font-weight: 400;
+        }
+
+        .footer-links {
+            display: flex;
+
+            gap: 25px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+
+            text-decoration: none;
+
+            font-size: 13px;
+        }
+
+        footer p {
+            color: #777;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           MODALS
+        ========================= */
+
+        .modal {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(0, 0, 0, 0.65);
+
+            display: none;
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .search-modal,
+        .wallet-modal {
+            background: #f7f6f2;
+
+            width: min(500px, 90%);
+
+            padding: 45px;
+
+            position: relative;
+        }
+
+        .modal h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 35px;
+
+            margin-bottom: 25px;
+        }
+
+        .search-modal input {
+            width: 100%;
+
+            padding: 16px;
+
+            border: 1px solid #ccc;
+
+            outline: none;
+        }
+
+        .close {
+            position: absolute;
+
+            right: 20px;
+
+            top: 15px;
+
+            border: none;
+
+            background: none;
+
+            font-size: 30px;
+
+            cursor: pointer;
+        }
+
+        .wallet-modal p {
+            color: #777;
+
+            margin-bottom: 25px;
+        }
+
+        .wallet-option {
+            width: 100%;
+
+            padding: 16px;
+
+            margin-bottom: 10px;
+
+            background: white;
+
+            border: 1px solid #ddd;
+
+            cursor: pointer;
+
+            text-align: left;
+
+            font-size: 15px;
+        }
+
+        .wallet-option:hover {
+            background: #eee;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .navbar nav {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 65px;
+            }
+
+            .hero-art {
+                margin-top: 30px;
+            }
+
+            .collection-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .artists-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+            }
+
+            .about-content h2 {
+                font-size: 55px;
+            }
+
+            footer {
+                flex-direction: column;
+
+                gap: 25px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 0 5%;
+            }
+
+            .connect-btn {
+                padding: 10px 15px;
+
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 50px 5%;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .art-card {
+                width: 100%;
+            }
+
+            .art-card img {
+                height: 430px;
+            }
+
+            .section {
+                padding: 80px 5%;
+            }
+
+            .section-header h2 {
+                font-size: 40px;
+            }
+
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .artists-section {
+                padding: 80px 5%;
+            }
+
+            .artists-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about {
+                padding: 80px 5%;
+            }
+
+            .about-image img {
+                height: 450px;
+            }
+
+            .about-content h2 {
+                font-size: 48px;
+            }
+
+            .newsletter h2 {
+                font-size: 48px;
+            }
+
+            .email-box {
+                flex-direction: column;
+
+                background: none;
+
+                gap: 10px;
+            }
+
+            .email-box input {
+                width: 100%;
+
+                background: white;
+            }
+
+            .email-box button {
+                height: 50px;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            WTR<span>Lab</span>
+        </div>
+
+        <nav>
+            <a href="#discover">Discover</a>
+            <a href="#artists">Artists</a>
+            <a href="#collections">Collections</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <div class="nav-buttons">
+
+            <button class="search-btn" id="searchBtn">
+                ⌕
+            </button>
+
+            <button class="connect-btn" id="connectBtn">
+                Connect Wallet
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-heading">
+                DIGITAL ART × CULTURE
+            </p>
+
+            <h1>
+                Discover the
+                <span>future of art.</span>
+            </h1>
+
+            <p class="hero-description">
+                Explore innovative digital artworks and
+                immersive collections created by artists
+                from around the world.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#discover" class="primary-btn">
+                    Explore Art
+                </a>
+
+                <a href="#artists" class="secondary-btn">
+                    Meet Artists →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-art">
+
+            <div class="art-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1549490349-8643362247b5?auto=format&fit=crop&w=900&q=80"
+                    alt="Digital artwork"
+                >
+
+                <div class="art-info">
+
+                    <div>
+
+                        <p>Featured Artwork</p>
+
+                        <h3>
+                            Infinite Forms
+                        </h3>
+
+                    </div>
+
+                    <span>
+                        01 / 04
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         COLLECTIONS
+    ========================== -->
+
+    <section class="section" id="discover">
+
+        <div class="section-header">
+
+            <div>
+
+                <p class="small-heading">
+                    EXPLORE
+                </p>
+
+                <h2>
+                    Featured Collections
+                </h2>
+
+            </div>
+
+            <button class="view-all">
+                View all →
+            </button>
+
+        </div>
+
+
+        <div class="collection-grid">
+
+
+            <article class="collection-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1634986666676-ec8fd927c23d?auto=format&fit=crop&w=900&q=80"
+                    alt="Digital collection"
+                >
+
+                <div class="card-content">
+
+                    <p>
+                        Digital Collection
+                    </p>
+
+                    <h3>
+                        Fragments of Reality
+                    </h3>
+
+                    <span>
+                        24 artworks
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="collection-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=900&q=80"
+                    alt="Generative art"
+                >
+
+                <div class="card-content">
+
+                    <p>
+                        Generative Art
+                    </p>
+
+                    <h3>
+                        New Dimensions
+                    </h3>
+
+                    <span>
+                        36 artworks
+                    </span>
+
+                </div>
+
+            </article>
+
+
+
+            <article class="collection-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?auto=format&fit=crop&w=900&q=80"
+                    alt="Contemporary art"
+                >
+
+                <div class="card-content">
+
+                    <p>
+                        Contemporary
+                    </p>
+
+                    <h3>
+                        Beyond the Canvas
+                    </h3>
+
+                    <span>
+                        18 artworks
+                    </span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ARTISTS
+    ========================== -->
+
+    <section class="artists-section" id="artists">
+
+        <div class="section-header">
+
+            <div>
+
+                <p class="small-heading">
+                    CREATORS
+                </p>
+
+                <h2>
+                    Featured Artists
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="artists-grid">
+
+
+            <div class="artist">
+
+                <div class="artist-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=500&q=80"
+                        alt="Alex Morgan"
+                    >
+
+                </div>
+
+                <h3>
+                    Alex Morgan
+                </h3>
+
+                <p>
+                    Digital Artist
+                </p>
+
+            </div>
+
+
+
+            <div class="artist">
+
+                <div class="artist-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80"
+                        alt="Sophia Lee"
+                    >
+
+                </div>
+
+                <h3>
+                    Sophia Lee
+                </h3>
+
+                <p>
+                    Contemporary Artist
+                </p>
+
+            </div>
+
+
+
+            <div class="artist">
+
+                <div class="artist-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80"
+                        alt="Daniel Kim"
+                    >
+
+                </div>
+
+                <h3>
+                    Daniel Kim
+                </h3>
+
+                <p>
+                    3D Artist
+                </p>
+
+            </div>
+
+
+
+            <div class="artist">
+
+                <div class="artist-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80"
+                        alt="Emma Wilson"
+                    >
+
+                </div>
+
+                <h3>
+                    Emma Wilson
+                </h3>
+
+                <p>
+                    Digital Creator
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about" id="about">
+
+        <div class="about-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?auto=format&fit=crop&w=1000&q=80"
+                alt="Art gallery"
+            >
+
+        </div>
+
+
+        <div class="about-content">
+
+            <p class="small-heading">
+                ABOUT WTRLAB
+            </p>
+
+            <h2>
+                Where art meets
+                technology.
+            </h2>
+
+            <p>
+                WTRLab brings together artists, collectors
+                and technology to create new ways of
+                experiencing contemporary art.
+            </p>
+
+            <button class="primary-btn">
+                Learn More
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         NEWSLETTER
+    ========================== -->
+
+    <section class="newsletter">
+
+        <p class="small-heading">
+            STAY CONNECTED
+        </p>
+
+        <h2>
+            Enter the world of
+            digital art.
+        </h2>
+
+
+        <div class="email-box">
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Your email address"
+            >
+
+            <button id="subscribeBtn">
+                Subscribe
+            </button>
+
+        </div>
+
+
+        <p id="message"></p>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            WTR<span>Lab</span>
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#discover">
+                Discover
+            </a>
+
+            <a href="#artists">
+                Artists
+            </a>
+
+            <a href="#collections">
+                Collections
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </div>
+
+
+        <p>
+            © 2026 WTRLab. All rights reserved.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         SEARCH MODAL
+    ========================== -->
+
+    <div class="modal" id="searchModal">
+
+        <div class="search-modal">
+
+            <button class="close" id="closeSearch">
+                ×
+            </button>
+
+            <h2>
+                Search artwork
+            </h2>
+
+            <input
+                type="text"
+                placeholder="Search collections, artists..."
+                id="searchInput"
+            >
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         WALLET MODAL
+    ========================== -->
+
+    <div class="modal" id="walletModal">
+
+        <div class="wallet-modal">
+
+            <button class="close" id="closeWallet">
+                ×
+            </button>
+
+            <h2>
+                Connect Wallet
+            </h2>
+
+            <p>
+                Choose your preferred wallet.
+            </p>
+
+
+            <button class="wallet-option">
+                🦊 MetaMask
+            </button>
+
+            <button class="wallet-option">
+                ◉ Coinbase Wallet
+            </button>
+
+            <button class="wallet-option">
+                ◇ WalletConnect
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        // =========================
+        // SEARCH MODAL
+        // =========================
+
+        const searchBtn =
+            document.getElementById("searchBtn");
+
+        const searchModal =
+            document.getElementById("searchModal");
+
+        const closeSearch =
+            document.getElementById("closeSearch");
+
+        const searchInput =
+            document.getElementById("searchInput");
+
+
+        searchBtn.addEventListener("click", () => {
+
+            searchModal.classList.add("active");
+
+            searchInput.focus();
+
+        });
+
+
+        closeSearch.addEventListener("click", () => {
+
+            searchModal.classList.remove("active");
+
+        });
+
+
+
+        // =========================
+        // WALLET MODAL
+        // =========================
+
+        const connectBtn =
+            document.getElementById("connectBtn");
+
+        const walletModal =
+            document.getElementById("walletModal");
+
+        const closeWallet =
+            document.getElementById("closeWallet");
+
+
+        connectBtn.addEventListener("click", () => {
+
+            walletModal.classList.add("active");
+
+        });
+
+
+        closeWallet.addEventListener("click", () => {
+
+            walletModal.classList.remove("active");
+
+        });
+
+
+
+        // =========================
+        // CLOSE MODALS
+        // =========================
+
+        window.addEventListener("click", (event) => {
+
+            if (event.target === searchModal) {
+
+                searchModal.classList.remove("active");
+
+            }
+
+
+            if (event.target === walletModal) {
+
+                walletModal.classList.remove("active");
+
+            }
+
+        });
+
+
+
+        // =========================
+        // ESCAPE KEY
+        // =========================
+
+        document.addEventListener("keydown", (event) => {
+
+            if (event.key === "Escape") {
+
+                searchModal.classList.remove("active");
+
+                walletModal.classList.remove("active");
+
+            }
+
+        });
+
+
+
+        // =========================
+        // NEWSLETTER
+        // =========================
+
+        const subscribeBtn =
+            document.getElementById("subscribeBtn");
+
+        const email =
+            document.getElementById("email");
+
+        const message =
+            document.getElementById("message");
+
+
+        subscribeBtn.addEventListener("click", () => {
+
+            const emailValue =
+                email.value.trim();
+
+
+            if (emailValue === "") {
+
+                message.textContent =
+                    "Please enter your email.";
+
+                return;
+
+            }
+
+
+            if (!emailValue.includes("@")) {
+
+                message.textContent =
+                    "Please enter a valid email.";
+
+                return;
+
+            }
+
+
+            message.textContent =
+                "Thank you! You're now part of the WTRLab community.";
+
+            email.value = "";
+
+        });
+
+
+
+        // =========================
+        // WALLET OPTIONS
+        // =========================
+
+        const walletOptions =
+            document.querySelectorAll(".wallet-option");
+
+
+        walletOptions.forEach(option => {
+
+            option.addEventListener("click", () => {
+
+                alert(
+                    "Wallet connection would be implemented here."
+                );
+
+                walletModal.classList.remove("active");
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
