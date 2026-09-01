@@ -9,20 +9,20 @@ const server = http.createServer(async(req,res)=>{
     }else if(req.url === '/product'){
         res.setHeader("content-type","text/html");
         res.statusCode = 200;
-        const data = createReadStream("product.html");
-        data.pipe(res);
+        const data1 = createReadStream("product.html");
+        data1.pipe(res);
     }else if(req.url === '/home'){
         res.setHeader("content-type","text/html");
         res.statusCode = 200;
-        const data = createReadStream("index.html");
-        data.pipe(res);
+        const data2 = createReadStream("index.html");
+        data2.pipe(res);
     }else if(req.url === "/about"){
         res.setHeader("content-type", "text/html");
         res.statusCode = 200;
 
-        const data = createReadStream("about.html");
+        const data3 = createReadStream("about.html");
 
-        data.pipe(res);
+        data3.pipe(res);
     }
     // res.end();
 });
