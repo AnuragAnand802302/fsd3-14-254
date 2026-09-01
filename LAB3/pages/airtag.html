@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AirTag — Find what matters.</title>
+  <meta name="description" content="A premium AirTag-inspired product landing page." />
+  <style>
+    :root{
+      --bg:#f7f7f7;
+      --surface:#ffffff;
+      --text:#1d1d1f;
+      --muted:#6e6e73;
+      --line:#dedee2;
+      --accent:#0071e3;
+      --dark:#000;
+      --max:1180px;
+      --radius:28px;
+      --shadow:0 24px 60px rgba(0,0,0,.10);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.45;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(18px) saturate(160%);
+      background:rgba(255,255,255,.82);
+      border-bottom:1px solid rgba(0,0,0,.08);
+    }
+    .nav-inner{
+      max-width:var(--max);
+      margin:auto;
+      height:62px;
+      padding:0 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:18px;
+      font-weight:700;
+      letter-spacing:-.02em;
+    }
+    .brand-dot{
+      width:25px;height:25px;border-radius:50%;
+      background:
+        radial-gradient(circle at 50% 48%, #efefef 0 42%, #c8c8c8 43% 48%, #f5f5f5 49% 57%, #bbb 58% 65%, #f8f8f8 66% 100%);
+      box-shadow:inset 0 0 0 1px rgba(0,0,0,.16), 0 1px 3px rgba(0,0,0,.18);
+    }
+    .nav-links{
+      display:flex;gap:30px;align-items:center;
+      color:#3a3a3c;font-size:14px;
+    }
+    .nav-links a{opacity:.92;transition:opacity .2s ease}
+    .nav-links a:hover{opacity:1}
+    .nav-cta{
+      background:var(--dark);color:#fff;padding:9px 17px;border-radius:999px;font-weight:600;
+    }
+
+    .hero{
+      min-height:calc(100vh - 62px);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      position:relative;
+      background:
+        radial-gradient(circle at 80% 25%, rgba(255,255,255,.95), transparent 25%),
+        radial-gradient(circle at 20% 40%, rgba(230,230,235,.65), transparent 28%),
+        linear-gradient(180deg,#f4f4f5 0%,#e9e9ec 100%);
+    }
+    .hero-inner{
+      width:min(var(--max),92%);
+      margin:auto;
+      padding:82px 0 100px;
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      align-items:center;
+      gap:60px;
+    }
+    .eyebrow{
+      color:var(--accent);
+      font-weight:700;
+      letter-spacing:.07em;
+      text-transform:uppercase;
+      font-size:13px;
+      margin-bottom:16px;
+    }
+    h1{
+      font-size:clamp(52px,8vw,96px);
+      line-height:.96;
+      letter-spacing:-.065em;
+      margin:0 0 26px;
+      max-width:680px;
+    }
+    .hero-copy{
+      font-size:clamp(19px,2.1vw,25px);
+      line-height:1.35;
+      color:#515154;
+      max-width:610px;
+      margin-bottom:30px;
+    }
+    .actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 21px;
+      border-radius:999px;
+      font-size:16px;
+      font-weight:600;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 24px rgba(0,113,227,.25)}
+    .btn-secondary{background:rgba(255,255,255,.7);border:1px solid rgba(0,0,0,.1)}
+
+    .product-stage{
+      position:relative;
+      min-height:540px;
+      display:grid;
+      place-items:center;
+    }
+    .halo{
+      width:min(480px,75vw);
+      height:min(480px,75vw);
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(255,255,255,.98) 0 40%, rgba(255,255,255,.6) 58%, rgba(255,255,255,0) 72%);
+      position:absolute;
+      filter:blur(1px);
+    }
+    .airtag{
+      position:relative;
+      width:300px;height:300px;
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255,255,255,.95) 0 14%, transparent 15%),
+        radial-gradient(circle at 42% 38%, #f9f9f9 0 35%, #d8d8db 72%, #b9b9be 100%);
+      box-shadow:
+        inset -28px -34px 50px rgba(0,0,0,.12),
+        inset 18px 18px 42px rgba(255,255,255,.85),
+        0 50px 90px rgba(0,0,0,.22),
+        0 0 0 1px rgba(0,0,0,.12);
+      transform:rotate(-9deg);
+      animation:float 5s ease-in-out infinite;
+    }
+    .airtag:before{
+      content:"";
+      position:absolute;
+      inset:26px;
+      border-radius:50%;
+      border:1px solid rgba(0,0,0,.06);
+    }
+    .airtag:after{
+      content:"";
+      position:absolute;
+      width:18px;height:18px;border-radius:50%;
+      left:50%;top:18px;transform:translateX(-50%);
+      background:#bcbcc0;
+      box-shadow:inset 0 2px 3px rgba(0,0,0,.17), 0 1px 0 rgba(255,255,255,.7);
+    }
+    .wire{
+      width:90px;height:18px;
+      border-radius:30px;
+      border:5px solid #aeb0b4;
+      border-left-color:transparent;
+      border-bottom-color:transparent;
+      position:absolute;
+      right:-45px;top:45px;
+      transform:rotate(30deg);
+      opacity:.75;
+    }
+
+    @keyframes float{
+      0%,100%{transform:translateY(0) rotate(-9deg)}
+      50%{transform:translateY(-16px) rotate(-6deg)}
+    }
+
+    .section{
+      max-width:var(--max);
+      margin:auto;
+      padding:120px 22px;
+    }
+    .center{text-align:center}
+    .kicker{
+      color:var(--muted);
+      font-size:14px;
+      font-weight:600;
+      margin-bottom:14px;
+    }
+    h2{
+      font-size:clamp(38px,5vw,64px);
+      line-height:1.02;
+      letter-spacing:-.055em;
+      margin:0 auto 20px;
+      max-width:820px;
+    }
+    .section-sub{
+      color:var(--muted);
+      font-size:20px;
+      max-width:720px;
+      margin:0 auto 55px;
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .card{
+      background:var(--surface);
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:var(--radius);
+      padding:34px;
+      min-height:320px;
+      box-shadow:0 12px 36px rgba(0,0,0,.05);
+    }
+    .icon{
+      width:54px;height:54px;border-radius:18px;
+      display:grid;place-items:center;
+      margin-bottom:28px;
+      background:#f1f1f3;
+      font-size:25px;
+    }
+    .card h3{
+      font-size:26px;
+      letter-spacing:-.03em;
+      margin:0 0 10px;
+    }
+    .card p{color:var(--muted);font-size:17px;margin:0}
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    .dark-card{
+      background:#000;
+      color:#fff;
+      border-radius:36px;
+      padding:48px;
+      min-height:480px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      overflow:hidden;
+      position:relative;
+    }
+    .dark-card:before{
+      content:"";
+      position:absolute;
+      width:430px;height:430px;
+      border-radius:50%;
+      right:-140px;bottom:-190px;
+      background:radial-gradient(circle, rgba(255,255,255,.16), transparent 68%);
+    }
+    .dark-card h3{font-size:54px;line-height:1;letter-spacing:-.055em;margin:0;max-width:560px}
+    .dark-card p{font-size:19px;color:#b9b9be;max-width:500px}
+    .mini-product{
+      width:150px;height:150px;border-radius:50%;
+      margin:auto;
+      background:radial-gradient(circle at 35% 30%,#fff 0 10%,#ececef 11% 45%,#bdbdc2 100%);
+      box-shadow:inset -16px -20px 25px rgba(0,0,0,.17), 0 35px 60px rgba(0,0,0,.5);
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:18px;
+    }
+    .stat{
+      background:#fff;
+      border-radius:24px;
+      padding:26px;
+      border:1px solid rgba(0,0,0,.06);
+    }
+    .stat strong{display:block;font-size:34px;letter-spacing:-.04em;margin-bottom:4px}
+    .stat span{color:var(--muted);font-size:15px}
+
+    .buy{
+      background:linear-gradient(145deg,#eef0f4,#e0e2e8);
+      border-radius:40px;
+      padding:70px 40px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .buy h2{font-size:clamp(42px,6vw,72px)}
+    .price{
+      font-size:28px;
+      font-weight:700;
+      margin:10px 0 28px;
+      letter-spacing:-.03em;
+    }
+    .fineprint{font-size:13px;color:var(--muted);margin-top:18px}
+
+    footer{
+      padding:46px 22px 60px;
+      color:#777;
+      font-size:13px;
+      text-align:center;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(26px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible{opacity:1;transform:none}
+
+    @media (max-width: 900px){
+      .nav-links{display:none}
+      .hero-inner{grid-template-columns:1fr;gap:25px;padding-top:58px}
+      .product-stage{min-height:420px}
+      .airtag{width:240px;height:240px}
+      .feature-grid,.split,.stats{grid-template-columns:1fr}
+      .dark-card{min-height:400px}
+    }
+    @media (max-width: 520px){
+      .nav-inner{padding:0 16px}
+      .hero-inner{width:min(var(--max),90%)}
+      h1{font-size:55px}
+      .product-stage{min-height:320px}
+      .airtag{width:190px;height:190px}
+      .halo{width:300px;height:300px}
+      .card{padding:28px}
+      .dark-card{padding:32px;border-radius:28px}
+      .dark-card h3{font-size:43px}
+      .buy{padding:55px 24px;border-radius:28px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#">
+        <span class="brand-dot" aria-hidden="true"></span>
+        AirTag
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#experience">Experience</a>
+        <a href="#buy" class="nav-cta">Buy</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="reveal">
+          <div class="eyebrow">AirTag</div>
+          <h1>Find what matters.</h1>
+          <p class="hero-copy">
+            A small, elegant tracker that helps you keep tabs on the things you never want to lose.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#buy">Buy AirTag</a>
+            <a class="btn btn-secondary" href="#features">Learn more</a>
+          </div>
+        </div>
+
+        <div class="product-stage reveal" aria-label="AirTag product illustration">
+          <div class="halo"></div>
+          <div class="airtag"><span class="wire"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center" id="features">
+      <div class="reveal">
+        <div class="kicker">Simple by design</div>
+        <h2>Small enough to forget.<br>Powerful enough to find.</h2>
+        <p class="section-sub">
+          Attach it to your keys, bag, wallet, or anything else that tends to disappear.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="card reveal">
+          <div class="icon">⌕</div>
+          <h3>Precision Finding</h3>
+          <p>Use nearby location guidance to help zero in on the exact spot when your item is close.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon">⌁</div>
+          <h3>Huge reach</h3>
+          <p>When it's farther away, a broad device network can help surface its latest known location.</p>
+        </article>
+        <article class="card reveal">
+          <div class="icon">⌁</div>
+          <h3>Built for everyday life</h3>
+          <p>Compact, lightweight, and designed to blend into the things you already carry every day.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="split">
+        <div class="dark-card reveal">
+          <div>
+            <div class="kicker" style="color:#aaa">Your essentials</div>
+            <h3>Less searching.<br>More living.</h3>
+            <p>Pair it once, attach it anywhere, and use your device to see where your stuff is.</p>
+          </div>
+          <div class="mini-product" aria-hidden="true"></div>
+        </div>
+
+        <div class="reveal">
+          <div class="card" style="height:100%;min-height:480px">
+            <div class="icon">✓</div>
+            <h3>Quietly smart.</h3>
+            <p style="margin-bottom:30px">
+              AirTag is made to be useful without getting in the way. Its minimal shape disappears into your routine until the moment you need it.
+            </p>
+            <div class="stats">
+              <div class="stat"><strong>1 tap</strong><span>to add an item</span></div>
+              <div class="stat"><strong>24/7</strong><span>peace of mind</span></div>
+              <div class="stat"><strong>∞</strong><span>places to attach it</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="buy">
+      <div class="buy reveal">
+        <div class="kicker">Ready when you are</div>
+        <h2>Keep track.<br>Keep moving.</h2>
+        <div class="price">$29</div>
+        <a href="#" class="btn btn-primary">Buy now</a>
+        <div class="fineprint">Demo landing page — replace pricing and purchase links with your live store details.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    AirTag concept landing page • Built with semantic HTML, CSS, and vanilla JavaScript.
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
