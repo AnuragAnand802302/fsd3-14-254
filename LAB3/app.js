@@ -1,9 +1,34 @@
 import http from "http";
+// import * as teams from 'teams.js';
+import { getAllTeams } from "./teams.js";
+
+const PORT = 5000;
+
+const sendJson = (res, statusCode,data)=>{
+  res.writeHead(statusCode,{"content-type":"application/json"});
+  res.end(data === 'undefined'?'':JSON.stringify(data));
+};
+
+const parseJSONBody = (req)=>{
+  new Promise((resolve, reject)=>{
+    let body = '';
+    req.on('data',(chunk)=>{
+      body += chunk.toString();
+    });
+    req.on("end", ()=>{
+      try{
+        resolve(body ? JSON.parse(body):{});
+      }catch(error){
+        reject(error);
+      }
+    });
+  });
+};
 
 const server = http.createServer((req, res) => {
-  res.end("<h2>Welcome to Serverside programming</h2>");
+  
 });
 
-server.listen(3000, () => {      //'npm i'  or 'npm install' command is used to install package by terminal through reading json packages
-  console.log("Server is running");
+server.listen(PORT , () => {      //'npm i'  or 'npm install' command is used to install package by terminal through reading json packages
+  console.log("SIH Server is running");
 });
