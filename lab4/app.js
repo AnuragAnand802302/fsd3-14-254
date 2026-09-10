@@ -43,9 +43,9 @@ const server = http.createServer(async (req, res) => {
     const team = addTeam({ tname, tl, members });
 
     return sendJson(res, 201, team, "Message", "Team registered successfully");
-  }else if(){
-    
-  } else {
+  }//else if(){}
+
+  else {
     res.statusCode = 404;
     res.end();
   }
