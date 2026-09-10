@@ -36,7 +36,7 @@ const server = http.createServer(async (req, res) => {
   if (pathname === "/api/v1/teams" && method === "GET") {
     let teams = getAllTeams();
     return sendJson(res, 200, teams);
-  } else if (pathname === "/api/v1/teams" && method == "POST") {
+  } else if (pathname === "/api/v1/teams" && method == "POST"){
     const { tname, tl, members } = await parseJSONBody(req);
     if (!tname || !tl || !members)
       return sendJson(400, { error: "tname, tl or member not defined" });
