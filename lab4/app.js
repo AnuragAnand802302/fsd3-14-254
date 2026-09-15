@@ -1,5 +1,5 @@
 import http from "http";
-import { getAllTeams, addTeam, getTeamByID, deleteTeam } from "./teams.js";
+import { getAllTeams, addTeam, getTeamByID, deleteTeam,updateTeamByID } from "./teams.js";
 import { parse as parseUrl } from "url";
 
 const PORT = 5000;
@@ -62,6 +62,20 @@ const server = http.createServer(async (req, res) => {
         });
         deleteTeam(id)
       return sendJson(res, 200, team, "Message", "Team deleted");
+  }else if(pathname.startsWith("/api/v1/teams/") && method === "PUT"){
+    const id = Number(pathname.split("/").pop());
+      const Oldteam = getTeamByID(id);
+  
+      if (!Oldteam)
+        return sendJson(res, 400, {
+          error: `Team with id: ${id} not found`,
+        });
+        const { tname, tl, members } = await parseJSONBody(req);
+        if (!tname || !tl || !members)
+          return sendJson(res, 400, { error: "tname, tl or member not defined" });
+        const updateteam = updateTeamByID(id,{ tname, tl, members });
+        
+      return sendJson(res, 200, updateteam, "Message", "Team updated succesfully");
   }
 
   else {
