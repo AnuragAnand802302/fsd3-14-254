@@ -1,5 +1,5 @@
 import http from "http";
-import { getAllTeams, addTeam, getTeamByID } from "./teams.js";
+import { getAllTeams, addTeam, getTeamByID, deleteTeam } from "./teams.js";
 import { parse as parseUrl } from "url";
 
 const PORT = 5000;
@@ -52,6 +52,16 @@ const server = http.createServer(async (req, res) => {
           error: `Team with id: ${id} not found`,
         });
       return sendJson(res, 200, team, "Message", "Team Found");
+  }else if(pathname.startsWith("/api/v1/teams/") && method === "DELETE"){
+    const id = Number(pathname.split("/").pop());
+      const team = getTeamByID(id);
+  
+      if (!team)
+        return sendJson(res, 400, {
+          error: `Team with id: ${id} not found`,
+        });
+        deleteTeam(id)
+      return sendJson(res, 200, team, "Message", "Team deleted");
   }
 
   else {
