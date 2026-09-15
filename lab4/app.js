@@ -43,7 +43,16 @@ const server = http.createServer(async (req, res) => {
     const team = addTeam({ tname, tl, members });
 
     return sendJson(res, 201, team, "Message", "Team registered successfully");
-  }//else if(){}
+  }else if (pathname.startsWith("/api/v1/teams/") && method === "GET") {
+      const id = Number(pathname.split("/").pop());
+      const team = getTeamByID(id);
+  
+      if (!team)
+        return sendJson(res, 400, {
+          error: `Team with id: ${id} not found`,
+        });
+      return sendJson(res, 200, team, "Message", "Team Found");
+  }
 
   else {
     res.statusCode = 404;
