@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enquiry - Google</title>
+    <style>
+      .enquiry-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+      }
+      .form-box {
+        width: 600px;
+        padding: 35px;
+        border: 1px solid #dadce0;
+        border-radius: 12px;
+        box-shadow: 0 1px 6px rgba(32, 33, 36, 0.15);
+      }
+      .form-box h1 {
+        text-align: center;
+        color: #202124;
+        margin-bottom: 10px;
+      }
+      .form-description {
+        text-align: center;
+        color: #5f6368;
+        margin-bottom: 25px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      form label {
+        font-size: 14px;
+        color: #202124;
+        margin-bottom: 7px;
+        margin-top: 12px;
+      }
+      form input,
+      form textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #dadce0;
+        border-radius: 5px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        outline: none;
+      }
+      form input:focus,
+      form textarea:focus {
+        border: 2px solid #4285f4;
+      }
+      form textarea {
+        resize: vertical;
+      }
+      .form-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 25px;
+      }
+      .form-buttons button {
+        padding: 11px 25px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      .form-buttons button[type="submit"] {
+        background-color: #1a73e8;
+        color: white;
+      }
+      .form-buttons button[type="reset"] {
+        background-color: #f1f3f4;
+        color: #202124;
+      }
+      .form-buttons button:hover {
+        opacity: 0.9;
+      } /* Mobile */
+      @media (max-width: 700px) {
+        .about-box,
+        .form-box {
+          width: 90%;
+        }
+        .search-box {
+          width: 90%;
+        }
+        .footer-links {
+          flex-direction: column;
+          gap: 15px;
+        }
+        .right-nav {
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About Us</a>
+
+        <div class="right-nav">
+          <a href="/enquiry">Enquiry</a>
+          <a href="#">Gmail</a>
+          <a href="#">Images</a>
+
+          <span class="apps">⋮⋮⋮</span>
+
+          <button class="sign-in">Sign in</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="enquiry-main">
+      <div class="logo small-logo">
+        <span class="blue">G</span>
+        <span class="red">o</span>
+        <span class="yellow">o</span>
+        <span class="blue">g</span>
+        <span class="green">l</span>
+        <span class="red">e</span>
+      </div>
+
+      <div class="form-box">
+        <h1>Enquiry Form</h1>
+
+        <p class="form-description">
+          Have a question? Fill out the form below and we will get back to you.
+        </p>
+
+        <form>
+          <label for="name"> Full Name </label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
+
+          <label for="email"> Email Address </label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+
+          <label for="phone"> Phone Number </label>
+
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter your phone number"
+          />
+
+          <label for="subject"> Subject </label>
+
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            placeholder="Enter enquiry subject"
+          />
+
+          <label for="message"> Your Enquiry </label>
+
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Write your enquiry here..."
+            required
+          ></textarea>
+
+          <div class="form-buttons">
+            <button type="submit">Submit Enquiry</button>
+
+            <button type="reset">Clear</button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <div class="country">India</div>
+
+      <div class="footer-links">
+        <div>
+          <a href="#">Advertising</a>
+          <a href="#">Business</a>
+          <a href="#">How Search works</a>
+        </div>
+
+        <div>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Settings</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

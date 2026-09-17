@@ -6,4 +6,4 @@ Fast, unopinionated, minimalist web framework for Node.js
     `type:module`
 3. install nodemon with `npm i nodemon -D`
 4. install express with `npm i express`
-5. update scripts in package.json to ![alt text](image.png)
+5. update scripts in package.json to ![alt text](./image/image.png)
