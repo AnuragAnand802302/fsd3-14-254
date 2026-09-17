@@ -10,8 +10,20 @@ app.get("/about", (req,res)=>{
     res.send("<h1>we are students performing server operation in lab.</h1>")
 });
 
+app.post("/login", (req,res)=>{
+    res.send({msg:'user login'})
+});
+
+app.put("/user/update/1", (req,res)=>{
+    res.send({msg:'user update'})
+});
+
+app.delete("/users/1", (req,res)=>{
+    res.send({msg:'remove user 1'})
+});
+
 app.use((req,res)=>{
-    res.status(404).send("<h1> Not found whatever you are looking for.</h1>")
+    res.status(404).send("<h1> Not found</h1>")
 });
 
 app.listen(3000, ()=>console.log("Server is running"));
