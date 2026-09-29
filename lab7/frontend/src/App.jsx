@@ -10,12 +10,35 @@ function Book(){
   );
 }
 
+const b1 = {
+  picURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEmnsjWZw-SapWpOxx4gn3UT8KO9RR97gx13tJAQL4-A&s=10",
+  bname: "Javascript modern web development",
+  price:1200,
+  quantity: 1,
+  rating: 3.5,
+
+
+};
+
+const b2 = {
+  picURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEmnsjWZw-SapWpOxx4gn3UT8KO9RR97gx13tJAQL4-A&s=10",
+  bname: "Javascript modern web development",
+  price:1200,
+  quantity: 1,
+  rating: 3.5,
+
+
+};
+
 export default function App() {
   return(
     <>
     <Book/>
     <h1>Hello My Name is Anurag Anand</h1>
-    <Book/>
+    <img src= {b1.picURL} alt = {b1.bname} />
+    <h1>Price: {b1.price}</h1>
+    <h2>Quantity: {b1.quantity}</h2>
+    <h3>Rating: {b1.rating}</h3>
     </>
   )
 }
