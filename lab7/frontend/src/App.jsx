@@ -1,11 +1,13 @@
-function Book(){
+function Book(props){
+  console.log(props);
+  
   return(
     <div>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1y_dEwIYSDLkAHVN92cnICONJ6PEvQ8yXoyrj93zkVg&s=10" alt="React Book For beginners" />
-      <h1>Let us React</h1>
-      <h2>Price : 765.00</h2>
-      <h3>Quantity: 5</h3>
-      <h3>Rating: 4.8(7)</h3>
+    <img src= {props.book.picURL} alt = {props.book.bname} />
+    <h1>{props.book.bname}</h1>
+    <h2>Price: {props.book.price}</h2>
+    <h3>Quantity: {props.book.quantity}</h3>
+    <h4>Rating: {props.book.rating}</h4>
     </div>
   );
 }
@@ -21,11 +23,11 @@ const b1 = {
 };
 
 const b2 = {
-  picURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEmnsjWZw-SapWpOxx4gn3UT8KO9RR97gx13tJAQL4-A&s=10",
-  bname: "Javascript modern web development",
-  price:1200,
-  quantity: 1,
-  rating: 3.5,
+  picURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRzEHzJBrBSOF4OLW6qp46nDi4-THEhhTPXKPEGOL0cQ&s",
+  bname: "Javascript The Definitive Guide",
+  price:2150,
+  quantity: 5,
+  rating: 4.5,
 
 
 };
@@ -33,12 +35,10 @@ const b2 = {
 export default function App() {
   return(
     <>
-    <Book/>
+    
     <h1>Hello My Name is Anurag Anand</h1>
-    <img src= {b1.picURL} alt = {b1.bname} />
-    <h1>Price: {b1.price}</h1>
-    <h2>Quantity: {b1.quantity}</h2>
-    <h3>Rating: {b1.rating}</h3>
+    <Book book = {b1}/>
+    <Book book = {b2}/>
     </>
   )
 }
