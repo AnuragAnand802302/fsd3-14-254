@@ -1,18 +1,4 @@
-function Book(props){
-  console.log(props);
-  const {picURL,bname,price,quantity,rating} = props.book;
-  
-  return(
-    <div className="book">
-    <img src= {picURL} alt = {props.book.bname} />
-    <h1>{bname}</h1>
-    <h2>Price: {price}</h2>   
-    <h3>Quantity: {quantity}</h3>
-    <h4>Rating: {rating}</h4>
-    <button>Buy Now</button>
-    </div>
-  );
-}
+import Book from './components/Book.jsx'
 
 const b1 = {
   picURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEmnsjWZw-SapWpOxx4gn3UT8KO9RR97gx13tJAQL4-A&s=10",
