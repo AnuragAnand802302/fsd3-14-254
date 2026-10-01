@@ -1,13 +1,15 @@
 function Book(props){
   console.log(props);
+  const {picURL,bname,price,quantity,rating} = props.book;
   
   return(
-    <div>
-    <img src= {props.book.picURL} alt = {props.book.bname} />
-    <h1>{props.book.bname}</h1>
-    <h2>Price: {props.book.price}</h2>
-    <h3>Quantity: {props.book.quantity}</h3>
-    <h4>Rating: {props.book.rating}</h4>
+    <div className="book">
+    <img src= {picURL} alt = {props.book.bname} />
+    <h1>{bname}</h1>
+    <h2>Price: {price}</h2>   
+    <h3>Quantity: {quantity}</h3>
+    <h4>Rating: {rating}</h4>
+    <button>Buy Now</button>
     </div>
   );
 }
@@ -18,8 +20,6 @@ const b1 = {
   price:1200,
   quantity: 1,
   rating: 3.5,
-
-
 };
 
 const b2 = {
@@ -28,17 +28,18 @@ const b2 = {
   price:2150,
   quantity: 5,
   rating: 4.5,
-
-
 };
 
 export default function App() {
   return(
     <>
-    
-    <h1>Hello My Name is Anurag Anand</h1>
+    <h1>E-Book Store</h1>
+    <div className="container">
     <Book book = {b1}/>
     <Book book = {b2}/>
+    <Book book = {b1}/>
+    <Book book = {b2}/>
+    </div>
     </>
   )
 }
