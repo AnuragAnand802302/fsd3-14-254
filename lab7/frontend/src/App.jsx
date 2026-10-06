@@ -1,6 +1,7 @@
 import Book from "./components/Book.jsx";
 import Pen from "./components/Pen.jsx";
 import Fruit from "./components/Fruit.jsx";
+import Event from "./components/Event.jsx";
 import { books } from "./data/books.js";
 import { pens } from "./data/pens.js";
 
@@ -16,6 +17,7 @@ export default function App() {
         <Pen pen={pens[0]} />
         <Pen pen={pens[1]} />
         <Fruit />
+        <Event/>
       </div>
     </>
   );

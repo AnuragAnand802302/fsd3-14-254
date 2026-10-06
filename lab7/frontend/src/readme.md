@@ -11,3 +11,4 @@ any components includes style
 In this method we use two `{}` with style attributes, all the css property must be single word. for example `text-align` becomes `textAlign`
 
 * App.jsx must have minimum codebase
+* by default button in html is submit button
