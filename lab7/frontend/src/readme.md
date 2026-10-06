@@ -9,3 +9,5 @@ any components includes style
 
 # inline css
 In this method we use two `{}` with style attributes, all the css property must be single word. for example `text-align` becomes `textAlign`
+
+* App.jsx must have minimum codebase
