@@ -12,3 +12,15 @@ In this method we use two `{}` with style attributes, all the css property must 
 
 * App.jsx must have minimum codebase
 * by default button in html is submit button
+
+# steps to install tailwind in vite react project
+1. type in terminal `npm install tailwindcss @tailwindcss/vite`
+2. open `vite.config.js`
+3. add this code `import tailwindcss from '@tailwindcss/vite'` to your vite.config.js
+4. update `defineconfig` in `vite.config.js` to 
+```
+export default defineConfig({
+  plugins: [react(),tailwindcss()],
+})
+```
+5. open src/index.css and remove all content and add `@import "tailwindcss";`

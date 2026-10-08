@@ -5,7 +5,7 @@ const MyButton = () =>{
         alert('Button Clicked')
     }
     return (
-        <button onClick={handleClick}>Click Me</button>
+        <button className="bg-black text-red-500" onClick={handleClick}>Click Me</button>
     )
 }
 

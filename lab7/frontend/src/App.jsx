@@ -5,20 +5,16 @@ import Event from "./components/Event.jsx";
 import { books } from "./data/books.js";
 import { pens } from "./data/pens.js";
 
+const MyButton = ()=>{
+  return(
+    <button className="bg-black text-white rounded-md text-xl m-4 px-4 py-2">Submit</button>
+  )
+}
+
 export default function App() {
   return (
     <>
-      <h1>E-Book Store</h1>
-      <div className="container">
-        <Book book={books[0]} />
-        <Book book={books[1]} />
-        <Book book={books[0]} />
-        <Book book={books[1]} />
-        <Pen pen={pens[0]} />
-        <Pen pen={pens[1]} />
-        <Fruit />
-        <Event/>
-      </div>
+      <MyButton/>
     </>
   );
 }
